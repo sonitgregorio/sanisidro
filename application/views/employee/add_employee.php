@@ -30,7 +30,7 @@
 						<div class="form-group">
 							<label class="col-sm-3 control-label">Position</label>
 							<div class="col-sm-9" style="padding:0">
-								<select class="form-control" name="position">
+								<select class="form-control" name="position" id="pos">
 									<option>Select Position</option>
 									<?php foreach ($this->api->get_position() as $value): ?>
 										<option value="<?= $value->id; ?>"><?= $value->description; ?></option>

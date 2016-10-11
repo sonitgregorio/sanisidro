@@ -117,5 +117,54 @@
 			$this->api->set_session_message('success', 'User Deleted', 'message');
 			redirect('/add_employee');
 		}
+		public function view_upload()
+		{
+			$this->load->model('usermd');
+			$this->load->view('templates/header');
+			$this->load->view('templates/navigation', array('nav' => 'upload'));
+			$this->load->view('pages/view_upload');
+			$this->load->view('templates/footer');
+		}
+		public function save_upload()
+		{
+			$config['upload_path']    = './assets/files/';
+        	$config['allowed_types']   = 'doc|docx|xlsx|pdf';
+       		$config['encrypt_name']    =  FALSE;
+
+       		$this->load->library('upload', $config);
+
+	        if ( ! $this->upload->do_upload('files'))
+	        {
+	          
+	        } else {
+	        	$data = array(
+	        		'filename' => $this->input->post('filename'),
+	        		'file_path' => $this->upload->data('file_name'),
+	        		'pid' => $this->session->userdata('pid')
+	        		);
+
+	        	$this->db->insert('tbl_file_upload', $data);
+				$this->api->set_session_message('success', 'New file has been uploaded !', 'message');
+	        	redirect('/view_upload');
+	        }	
+		}
+		public function delete_documents($id)
+		{
+			$this->db->where('id', $id);
+			$this->db->delete('tbl_file_upload');
+			$this->api->set_session_message('success', 'File has been removed!', 'message');
+        	redirect('/view_upload');	
+		}
+		public function download_documents($id)
+		{
+			$this->load->helper('download');
+          	$this->load->library('encryption');
+			$this->db->where('id', $id);
+			$x = $this->db->get('tbl_file_upload')->row_array();
+			$f = $x['file_path'];
+            $data = './assets/files/' . $f;
+            $name = $x['filename'];
+            force_download($x['file_path'], $data);
+		}
 	}
 	

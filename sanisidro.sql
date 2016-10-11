@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 09, 2016 at 06:03 PM
+-- Generation Time: Oct 11, 2016 at 05:01 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -66,6 +66,19 @@ INSERT INTO `tbl_branch` (`id`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_file_upload`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_file_upload` (
+  `id` int(11) NOT NULL,
+  `filename` varchar(150) NOT NULL,
+  `file_path` text NOT NULL,
+  `pid` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_party`
 --
 
@@ -87,7 +100,7 @@ CREATE TABLE IF NOT EXISTS `tbl_party` (
 --
 
 INSERT INTO `tbl_party` (`id`, `firstname`, `lastname`, `position`, `branch`, `address`, `contact`, `civil`, `gender`, `email`) VALUES
-(5, 'Admins', 'Sonits', 1, 0, '1002 Real Street', '09090909090', 'Single', 'Male', 'sonitgregorio@gmail.com'),
+(5, 'Admins22', 'Sonits', 1, 0, '1002 Real Street', '09090909090', 'Single', 'Male', 'sonitgregorio@gmail.com'),
 (11, 'person', 'Ssss', 2, 0, '1002 Real Street', '09090909090', 'Single', 'Male', 'sonitgregorio@gmail.com');
 
 -- --------------------------------------------------------
@@ -153,6 +166,12 @@ ALTER TABLE `tbl_branch`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_file_upload`
+--
+ALTER TABLE `tbl_file_upload`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_party`
 --
 ALTER TABLE `tbl_party`
@@ -184,6 +203,11 @@ ALTER TABLE `tbl_announcement`
 --
 ALTER TABLE `tbl_branch`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `tbl_file_upload`
+--
+ALTER TABLE `tbl_file_upload`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tbl_party`
 --

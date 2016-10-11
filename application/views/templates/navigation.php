@@ -56,7 +56,7 @@
                       </a>
                   </li>
                    <li class="list-group-item ">
-                      <a class="menu <?= $nav == 'upload' ? 'active' : '' ?>" href="#">
+                      <a class="menu <?= $nav == 'upload' ? 'active' : '' ?>" href="/view_upload">
                           <span class="glyphicon glyphicon-cloud-upload"></span>&nbsp; &nbsp; Upload File
                       </a>
                   </li>

@@ -76,4 +76,8 @@ $route['save_announcement'] = 'user/save_announcement';
 $route['delete_ann/(:num)'] = 'user/delete_ann/$1';
 $route['view_announcement'] = 'user/view_announcement';
 $route['delete_user/(:num)']= 'user/delete_user/$1';
+$route['view_upload']		= 'user/view_upload';
+$route['insert_file']		= 'user/save_upload';
+$route['delete_documents/(:num)'] = 'user/delete_documents/$1';
+$route['download_documents/(:num)'] = 'user/download_documents/$1';
 

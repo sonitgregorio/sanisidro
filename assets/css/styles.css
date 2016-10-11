@@ -850,3 +850,28 @@ thead tr td{
 	padding-right: 20px;
 	border-radius: 5px;
 }
+
+.btn-primary, .label-primary {
+    color: #FFFF6F;
+    background-color: #670606;
+    border-color: #670606;
+}
+.btn-primary, .label-primary {
+    background-image: -webkit-linear-gradient(top, #670606 0%, #670606 100%);
+    background-image: -o-linear-gradient(top, #428bca 0%, #2d6ca2 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#670606), to(#670606));
+    background-image: linear-gradient(to bottom, #670606 0%, #670606 0%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff428bca', endColorstr='#ff2d6ca2', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+    background-repeat: repeat-x;
+    border-color: #670609;
+}
+.btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    color: #fff;
+    background-color: #670606;
+    border-color: #670606;
+}
+.btn-primary:hover, .btn-primary:focus {
+    background-color: #670606;
+    background-position: 0 -15px;
+}

@@ -36,4 +36,10 @@
 			$this->db->order_by('id', 'DESC');
 			return $this->db->get('tbl_announcement')->result_array();
 		}
+		public function get_files()
+		{
+			$this->db->where('a.pid = b.id');
+			$this->db->select('a.*, CONCAT(b.firstname, " ", b.lastname) fname');
+			return $this->db->get('tbl_file_upload a, tbl_party b')->result_array();
+		}
 	}
