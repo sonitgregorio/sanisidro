@@ -16,7 +16,7 @@
 
                 <div class="collapse navbar-collapse pull-right" id = "header1">
                      <ul class="nav navbar-nav navbar-right">
-                        <li ><a href="/organization" style="color:#FFFF6F">Organizational Chart</a></li>
+                        <li ><a href="/organization" class="<?= $nav == 'organization' ? 'li_active' : '' ?>" style="color:#FFFF6F">Organizational Chart</a></li>
                         <li ><a href="/request" style="color:#FFFF6F" class="<?= $nav == 'request' ? 'li_active' : '' ?>">Request</a></li>
                         <li ><a href="/view_announcement" style="color:#FFFF6F" class="<?= $nav == 'view_ann' ? 'li_active' : '' ?>">Announcement</a></li>
 

@@ -43,6 +43,7 @@
                     </thead>
                     <tbody>
                     	<?php foreach ($this->usermd->get_files() as $key => $value): ?>
+                    		<tr>
                     		<td><?= $value['fname'] ?></td>
                     		<td><?= $value['filename'] ?></td>
                     		<td style="text-align: center">
@@ -57,6 +58,7 @@
                             	<?php } ?>
                             	
                     		</td>
+                    		</tr>
                     	<?php endforeach ?>
                     </tbody>
                 </table>

@@ -80,4 +80,11 @@ $route['view_upload']		= 'user/view_upload';
 $route['insert_file']		= 'user/save_upload';
 $route['delete_documents/(:num)'] = 'user/delete_documents/$1';
 $route['download_documents/(:num)'] = 'user/download_documents/$1';
+$route['insert_request']			= 'user/insert_request';
+$route['view_request']				= 'user/view_request';
+$route['download_request/(:num)']	= 'user/download_request/$1';
+$route['approve/(:num)']			= 'user/approve/$1';
+$route['reject_r/(:num)']			= 'user/reject_r/$1';
+$route['view_approve']				= 'user/view_approve';
+$route['organization']				= 'user/organization';
 

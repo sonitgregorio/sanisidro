@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2016 at 05:01 PM
+-- Generation Time: Oct 30, 2016 at 02:16 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `tbl_announcement` (
   `date_ann` varchar(50) NOT NULL,
   `ann` text NOT NULL,
   `title` varchar(100) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_announcement`
@@ -40,7 +40,8 @@ CREATE TABLE IF NOT EXISTS `tbl_announcement` (
 
 INSERT INTO `tbl_announcement` (`id`, `pid`, `date_ann`, `ann`, `title`) VALUES
 (2, 5, '2016-10-09', 'Sample  Announcement', 'asa'),
-(3, 5, '2016-10-09', 'This is for the title', 'Sample Title');
+(3, 5, '2016-10-09', 'This is for the title', 'Sample Title'),
+(4, 5, '2016-10-30', '2qwewqeqw', 'Test');
 
 -- --------------------------------------------------------
 
@@ -74,7 +75,15 @@ CREATE TABLE IF NOT EXISTS `tbl_file_upload` (
   `filename` varchar(150) NOT NULL,
   `file_path` text NOT NULL,
   `pid` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_file_upload`
+--
+
+INSERT INTO `tbl_file_upload` (`id`, `filename`, `file_path`, `pid`) VALUES
+(1, 'Text', 'About-NBC.docx', 5),
+(2, 'Sample Attachments', 'Attachment13-VehicleandEquipmentPurchaseApprovalLetter11.doc', 5);
 
 -- --------------------------------------------------------
 
@@ -123,6 +132,31 @@ INSERT INTO `tbl_position` (`id`, `description`) VALUES
 (2, 'Personnel'),
 (3, 'Manager'),
 (4, 'Baker');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_request`
+--
+
+CREATE TABLE IF NOT EXISTS `tbl_request` (
+  `id` int(11) NOT NULL,
+  `fullname` varchar(50) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `contact` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `filename` text NOT NULL,
+  `description` text NOT NULL,
+  `status` varchar(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_request`
+--
+
+INSERT INTO `tbl_request` (`id`, `fullname`, `address`, `contact`, `email`, `filename`, `description`, `status`) VALUES
+(2, 'asdasd', 'asdsa', 'aa', 'ad', 'For_Interview_0_0.docx', 'asdasdas', 'Approved'),
+(3, 'Gregorio', '1002 Real Street', '09172580624', 'sonitgregorio@gmail.com', 'About-NBC1.docx', 'Sample Request', 'Approved');
 
 -- --------------------------------------------------------
 
@@ -184,6 +218,12 @@ ALTER TABLE `tbl_position`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tbl_request`
+--
+ALTER TABLE `tbl_request`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
@@ -197,7 +237,7 @@ ALTER TABLE `tbl_users`
 -- AUTO_INCREMENT for table `tbl_announcement`
 --
 ALTER TABLE `tbl_announcement`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tbl_branch`
 --
@@ -207,7 +247,7 @@ ALTER TABLE `tbl_branch`
 -- AUTO_INCREMENT for table `tbl_file_upload`
 --
 ALTER TABLE `tbl_file_upload`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tbl_party`
 --
@@ -218,6 +258,11 @@ ALTER TABLE `tbl_party`
 --
 ALTER TABLE `tbl_position`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `tbl_request`
+--
+ALTER TABLE `tbl_request`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tbl_users`
 --

@@ -42,4 +42,14 @@
 			$this->db->select('a.*, CONCAT(b.firstname, " ", b.lastname) fname');
 			return $this->db->get('tbl_file_upload a, tbl_party b')->result_array();
 		}
+		public function getRequest()
+		{
+			$this->db->where('status = ""');
+			return $this->db->get('tbl_request')->result_array();
+		}
+		public function getApprove()
+		{
+			$this->db->where('status', "Approved");
+			return $this->db->get('tbl_request')->result_array();
+		}
 	}

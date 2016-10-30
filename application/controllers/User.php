@@ -166,5 +166,89 @@
             $name = $x['filename'];
             force_download($x['file_path'], $data);
 		}
+		public function insert_request()
+		{
+			$fname = $this->input->post('fname');
+			$address = $this->input->post('address');
+			$contact = $this->input->post('contact');
+			$email = $this->input->post('email');
+			$description = $this->input->post('description');
+
+			$data = array('fullname' => $fname,
+						  'address' => $address,
+						  'contact' => $contact,
+						  'email' => $email,
+						  'description' => $description
+						 );
+
+			$config['upload_path']    = './assets/files/';
+        	$config['allowed_types']   = 'doc|docx|xlsx|pdf';
+       		$config['encrypt_name']    =  FALSE;
+
+       		$this->load->library('upload', $config);
+
+	        if ( ! $this->upload->do_upload('files'))
+	        {
+	          
+	        } else {
+	        	$upload_data = $this->upload->data();
+	        	$data['filename'] = $upload_data['file_name'];
+
+				$this->db->insert('tbl_request', $data);
+				$this->api->set_session_message('success', 'Request has been sent!', 'message');
+	        	redirect('/request');
+	        }	
+		}
+		function view_request()
+		{
+			$this->load->model('usermd');
+			$this->load->view('templates/header');
+			$this->load->view('templates/navigation', array('nav' => 'reuqest'));
+			$this->load->view('pages/view_request');
+			$this->load->view('templates/footer');
+		}
+		public function download_request($id)
+		{
+			$this->load->helper('download');
+          	$this->load->library('encryption');
+			$this->db->where('id', $id);
+			$x = $this->db->get('tbl_request')->row_array();
+			$f = $x['filename'];
+            $data = './assets/files/' . $f;
+            $name = $x['filename'];
+            force_download($x['filename'], $data);
+		}
+		public function approve($id)
+		{
+			$data = array('status' => 'Approved');
+			$this->db->where('id', $id);
+			$this->db->update('tbl_request', $data);
+			$this->api->set_session_message('success', 'Request has been Approved!', 'message');
+			redirect('/view_request');
+		}
+		public function reject_r($id)
+		{
+			$data = array('status' => 'Rejected');
+			$this->db->where('id', $id);
+			$this->db->update('tbl_request', $data);
+			$this->api->set_session_message('success', 'Request has been Rejected!', 'message');
+			redirect('/view_request');
+		}
+		public function view_approve()
+		{
+			$this->load->model('usermd');
+			$this->load->view('templates/header');
+			$this->load->view('templates/navigation', array('nav' => 'app_re'));
+			$this->load->view('pages/view_approve');
+			$this->load->view('templates/footer');
+		}
+		public function organization()
+		{
+			$this->load->model('usermd');
+			$this->load->view('templates/header');
+			$this->load->view('templates/header2', array('nav' => 'organization'));
+			$this->load->view('pages/organization');
+			$this->load->view('templates/footer');
+		}
 	}
 	

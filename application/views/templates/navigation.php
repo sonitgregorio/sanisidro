@@ -60,6 +60,16 @@
                           <span class="glyphicon glyphicon-cloud-upload"></span>&nbsp; &nbsp; Upload File
                       </a>
                   </li>
+                   <li class="list-group-item ">
+                      <a class="menu <?= $nav == 'reuqest' ? 'active' : '' ?>" href="/view_request">
+                          <span class="glyphicon glyphicon glyphicon-th-list"></span>&nbsp; &nbsp; Request
+                      </a>
+                  </li>
+                  <li class="list-group-item ">
+                      <a class="menu <?= $nav == 'app_re' ? 'active' : '' ?>" href="/view_approve">
+                          <span class="glyphicon glyphicon glyphicon-thumbs-up"></span>&nbsp; &nbsp; Approved Request
+                      </a>
+                  </li>
                   <li class="list-group-item ">
                       <a class="menu <?= $nav == 'logout' ? 'active' : '' ?>" href="/logout">
                           <span class="glyphicon glyphicon-off"></span>&nbsp; &nbsp; Logout
